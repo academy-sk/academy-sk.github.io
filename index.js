@@ -19,6 +19,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         console.log(firebaseUser);
         console.log('lonin done');
+        localStorage.uid = firebaseUser.email;
 
     }
     else {
