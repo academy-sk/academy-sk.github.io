@@ -92,7 +92,7 @@ function showListM() {
 
     ref.on('child_changed', snap => {
         a = snap.val();
-        const li = document.getElementById(snap.key + "content");
+        const content = document.getElementById(snap.key + "content");
         let heal;
         if (a.by == localStorage.uid) {
             heal = `        
@@ -104,7 +104,8 @@ function showListM() {
             `
         }else
             heal='';
-        li.innerHTML = `
+
+        content.innerHTML = `
                 <span class="mdl-list__item-primary-content">
                     <i class="material-icons mdl-list__item-avatar">person</i>
                     <span id="${snap.key + a.studentID}">NAME</span>
