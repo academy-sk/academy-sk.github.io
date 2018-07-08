@@ -14,6 +14,17 @@ var db = firebase.database();
 // console.log(IDin);
 
 
+firebase.auth().onAuthStateChanged(firebaseUser => {
+	if (firebaseUser){
+		console.log(firebaseUser);
+        console.log('lonin done');
+        
+	}
+	else{
+		window.location="/login";
+	}
+})
+
 //              get ID        //
 function getID(a) {
     if (a.length == 4) {
