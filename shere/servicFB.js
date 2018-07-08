@@ -28,3 +28,7 @@ function getName(ref,ID) {
         ref.innerHTML = a.preName+a.name+'   '+a.lastName +"  " + a.yearClass;
     });
 }
+
+function signOut(){
+    firebase.auth().signOut()
+}
