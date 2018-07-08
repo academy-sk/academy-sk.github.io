@@ -34,10 +34,10 @@
                     </button>
 
                     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
-                        <li class="mdl-menu__item">Some Action</li>
-                        <li class="mdl-menu__item">Another Action</li>
-                        <li disabled class="mdl-menu__item">Disabled Action</li>
-                        <li class="mdl-menu__item">Yet Another Action</li>
+                        <li onclick="firebase.authfirebase.auth().signOut()" class="mdl-menu__item">
+                            <i class="material-icons" style="transform: translateY(30%)">input</i>
+                            <span style="float: right;"> Sing Out</span>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -93,9 +93,10 @@
                         </div>
                         <div class="mdl-card__actions mdl-card--border" id="reportForm">
                             <button onclick="sendReport()" id="addReportBT" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                                <i class="material-icons">add</i>
+                                <i class="material-icons">send</i>
                             </button>
-                            <form name="reportCB" id="reportCB"><br>
+                            <form name="reportCB" id="reportCB">
+                                <br>
                                 <h4 id="nameOfID"></h4>
                                 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
                                     <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" value="ไม่สวมหมวกนิรภัย" name="1">
