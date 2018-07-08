@@ -148,3 +148,44 @@ body{
     }
   }
   
+
+/* animate */
+#pop{
+   -webkit-animation-name: pop; /* Safari 4.0 - 8.0 */
+   -webkit-animation-duration: .3s; /* Safari 4.0 - 8.0 */
+   -webkit-animation-timing-function: ease; /* Safari 4.0 - 8.0 */
+   animation-name: pop;
+   animation-duration: .3s;
+   animation-timing-function: ease;
+}
+#gone{
+  -webkit-animation-name: gone; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: .3s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-timing-function: ease; /* Safari 4.0 - 8.0 */
+  animation-name: gone;
+  animation-duration: .3s;
+  animation-timing-function: ease;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes pop {
+  from {transform: scale(0);}
+  to {transform: scale(1);}
+}
+
+/* Standard syntax */
+@keyframes pop {
+  from {transform: scale(0);}
+  to {transform: scale(1);}
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes gone {
+  from {transform: translateX(0);}
+  to {transform: translateX(100%);}
+}
+
+/* Standard syntax */
+@keyframes gone {
+  from {transform: translateX(0);}
+  to {transform: translateX(100%);}
+}
