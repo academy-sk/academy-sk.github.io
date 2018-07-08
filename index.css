@@ -35,3 +35,116 @@ body{
 #demo-toast-fall{
     background-color:rgb(244, 67, 54);
 }
+
+/* ///////////////////////checkbox///////////////////////// */
+  .group 			  { 
+    position:relative; 
+    margin-bottom:45px; 
+  }
+  input[type=checkbox]{
+    font-size:18px;
+    padding:10px 10px 10px 5px;
+    display:block;
+    width:100%;
+    border:none;
+    border-bottom:1px solid #757575;
+  }
+  input:focus 		{ outline:none; }
+  
+  /* LABEL ======================================= */
+  label 				 {
+    color:#999; 
+    font-size:18px;
+    font-weight:normal;
+    position:absolute;
+    pointer-events:none;
+    left:5px;
+    top:10px;
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+  }
+  
+  /* active state */
+  input[type=checkbox]:focus ~ label, input[type=checkbox]:valid ~ label,#info ~ label{
+    top:-20px;
+    font-size:1em;
+    color:#111;
+  }
+
+  .cbx {
+    margin: auto;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+  }
+  .cbx span {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translate3d(0, 0, 0);
+  }
+  .cbx span:first-child {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    transform: scale(1);
+    vertical-align: middle;
+    border: 1px solid #9098A9;
+    transition: all 0.2s ease;
+  }
+  .cbx span:first-child svg {
+    position: absolute;
+    top: 3px;
+    left: 2px;
+    fill: none;
+    stroke: #FFFFFF;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 16px;
+    stroke-dashoffset: 16px;
+    transition: all 0.3s ease;
+    transition-delay: 0.1s;
+    transform: translate3d(0, 0, 0);
+  }
+  .cbx span:first-child:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgb(121, 85, 72);
+    display: block;
+    transform: scale(0);
+    opacity: 1;
+    border-radius: 50%;
+  }
+  .cbx span:last-child {
+    padding-left: 3px;
+  }
+  .cbx:hover span:first-child {
+    border-color: rgb(121, 85, 72);
+  }
+  .inp-cbx{
+    opacity: 0;
+  }
+  .inp-cbx:checked + .cbx span:first-child {
+    background: rgb(121, 85, 72);
+    border-color: rgb(121, 85, 72);
+    animation: wave 0.4s ease;
+  }
+  .inp-cbx:checked + .cbx span:first-child svg {
+    stroke-dashoffset: 0;
+  }
+  .inp-cbx:checked + .cbx span:first-child:before {
+    transform: scale(3.5);
+    opacity: 0;
+    transition: all 0.6s ease;
+  }
+  
+  @keyframes wave {
+    50% {
+      transform: scale(0.9);
+    }
+  }
+  

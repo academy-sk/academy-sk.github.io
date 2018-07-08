@@ -5,6 +5,7 @@ var stdID;
 //         DOM         //
 var IDin = document.getElementById('inputStudentID');
 var RPform = document.getElementById('reportForm');
+var RPcheckBox = document.getElementById("reportCB")
 var disName = document.getElementById("nameOfID");
 var snackbarContainer = document.querySelector('#demo-toast-example');
 var sendReportBT = document.querySelector('#addReportBT');
@@ -15,14 +16,14 @@ var db = firebase.database();
 
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
-	if (firebaseUser){
-		console.log(firebaseUser);
+    if (firebaseUser) {
+        console.log(firebaseUser);
         console.log('lonin done');
-        
-	}
-	else{
-		window.location="/login";
-	}
+
+    }
+    else {
+        window.location = "/login";
+    }
 })
 
 //              get ID        //
@@ -60,7 +61,7 @@ function showListM() {
 
         const li = document.createElement('li');
         li.className = 'mdl-list__item mdl-list__item--three-line';
-        li.id = snap.key+"content";
+        li.id = snap.key + "content";
         li.innerHTML = `
             <span class="mdl-list__item-primary-content">
                 <i class="material-icons mdl-list__item-avatar">person</i>
@@ -81,7 +82,7 @@ function showListM() {
 
     ref.on('child_changed', snap => {
         a = snap.val();
-        const li = document.getElementById(snap.key+"content");
+        const li = document.getElementById(snap.key + "content");
         li.innerHTML = `
         <span class="mdl-list__item-primary-content">
             <i class="material-icons mdl-list__item-avatar">person</i>
@@ -99,7 +100,7 @@ function showListM() {
     })
 
     ref.on('child_removed', snap => {
-        const li = document.getElementById(snap.key+"content");
+        const li = document.getElementById(snap.key + "content");
         li.remove();
     })
 }
@@ -136,5 +137,6 @@ function sendReport() {
     if (data.message != '')
         snackbarContainer.MaterialSnackbar.showSnackbar(data);
     else
-        snackbarContainer.MaterialSnackbar.showSnackbar({message:"ไม่มีข้อมูล"});
+        snackbarContainer.MaterialSnackbar.showSnackbar({ message: "ไม่มีข้อมูล" });
+    // window.location="/newLooked";
 };
