@@ -119,11 +119,10 @@ function showListM() {
 
     ref.on('child_removed', snap => {
         const rm = document.getElementById(snap.key + "content");
-        rm.id="gone";
-        
+        rm.id="gone";        
         setTimeout(() => {
             rm.remove();
-        }, 300);
+        }, 400);
     })
 }
 
