@@ -1,0 +1,37 @@
+
+/* @import url('https://fonts.googleapis.com/css?family=Athiti&subset=thai'); */
+
+body{
+    font-family: 'Athiti', sans-serif;
+}
+
+*{
+    box-sizing:border-box;
+}
+.menu{
+    position: absolute;
+    right: 0;
+}
+#reportForm{
+    display: none;
+    padding:0px;
+    margin:0;
+    background-color: #eee;
+}
+#reportCB{
+    transform:translateX(9%);
+    /* display:none  */
+}
+#reportCB label{
+    margin: 10px 0 ;
+}
+#addReportBT{
+    /* position: absolute; */
+    right: 10%;
+    transform: translateY(-50%);
+    position: absolute;
+    z-index: 1000;
+}
+#demo-toast-fall{
+    background-color:rgb(244, 67, 54);
+}
