@@ -54,12 +54,13 @@ function showListM() {
     let time = new Date();
 
     let ref = db.ref("report/" + time.getFullYear() + '/' + `${time.getMonth() + 1}`);
+
     ref.orderByChild("date").on('child_added', snap => {
         let a = snap.val();
 
         const li = document.createElement('li');
         li.className = 'mdl-list__item mdl-list__item--three-line';
-        li.id = snap.key;
+        li.id = snap.key+"content";
         li.innerHTML = `
             <span class="mdl-list__item-primary-content">
                 <i class="material-icons mdl-list__item-avatar">person</i>
@@ -69,17 +70,18 @@ function showListM() {
                 </span>
             </span>
             <span class="mdl-list__item-secondary-content">
-                <a class="mdl-list__item-secondary-action" href="#">
-                    <i class="material-icons">star</i>
+                <a class="mdl-list__item-secondary-action" style="color:#666" id="${snap.key}" onclick="remove(this.id)">
+                    <i class="material-icons">healing</i>
                 </a>
             </span>        
         `;
         listObj.insertBefore(li, list.childNodes[0]);
         getName(document.getElementById(snap.key + a.studentID), a.studentID);
     })
+
     ref.on('child_changed', snap => {
         a = snap.val();
-        const li = document.getElementById(snap.key);
+        const li = document.getElementById(snap.key+"content");
         li.innerHTML = `
         <span class="mdl-list__item-primary-content">
             <i class="material-icons mdl-list__item-avatar">person</i>
@@ -89,7 +91,7 @@ function showListM() {
             </span>
         </span>
         <span class="mdl-list__item-secondary-content">
-            <a class="mdl-list__item-secondary-action" href="#">
+            <a class="mdl-list__item-secondary-action" >
                 <i class="material-icons">star</i>
             </a>
         </span>        
@@ -97,7 +99,7 @@ function showListM() {
     })
 
     ref.on('child_removed', snap => {
-        const li = document.getElementById(snap.key);
+        const li = document.getElementById(snap.key+"content");
         li.remove();
     })
 }

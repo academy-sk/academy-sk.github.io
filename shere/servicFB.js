@@ -11,7 +11,15 @@ var config = {
 firebase.initializeApp(config);
 
 var db = firebase.database();
+var time = new Date();
 
+
+function remove(key){
+    let a ={};
+    a["report" + '/' + time.getFullYear() + '/' + `${time.getMonth() + 1}` + '/' + key] = null;    
+    firebase.database().ref().update(a);
+
+}
 
 function showNameOfID(id,ref){
     db.ref('member').child(id).once('value').then(snap=>{
